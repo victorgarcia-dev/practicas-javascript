@@ -9,7 +9,14 @@
    Dado un número, retorná "positivo", "negativo" o "cero".
 -------------------------------------------------------------------------- */
 function signoNumero(numero) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  if(numero > 0){
+  return 'positivo';
+  } else if (numero < 0){
+    return 'negativo';
+  } else {
+    return 'cero';
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -19,7 +26,8 @@ function signoNumero(numero) {
    a menos que también sean divisibles por 400.
 -------------------------------------------------------------------------- */
 function esBisiesto(anio) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  return (anio % 4 === 0 && anio % 100 !== 0 || anio % 400 === 0);
 }
 
 /* --------------------------------------------------------------------------
@@ -28,7 +36,21 @@ function esBisiesto(anio) {
    "laborable" si va de lunes a viernes, o "fin de semana" si es sábado/domingo.
 -------------------------------------------------------------------------- */
 function tipoDia(dia) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  switch(dia) {
+    case 'lunes': 
+       return 'laborable';
+    case 'martes': 
+       return 'laborable';
+    case 'miercoles': 
+       return 'laborable';
+    case 'jueves': 
+       return 'laborable';
+    case 'viernes': 
+       return 'laborable';
+    default: 
+       return 'fin de semana';
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -39,7 +61,14 @@ function tipoDia(dia) {
    - 65 años o más: 700
 -------------------------------------------------------------------------- */
 function precioEntrada(edad) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  if(edad < 12){
+    return 500;
+  } else if( edad >= 65){
+    return 700;
+  } else {
+    return 1200;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -48,7 +77,12 @@ function precioEntrada(edad) {
    o "Vacío" si no.
 -------------------------------------------------------------------------- */
 function tieneContenido(texto) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  if(texto.length !== 0) {
+    return 'Tiene contenido';
+  } else {
+    return 'Vacío';
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -59,7 +93,14 @@ function tieneContenido(texto) {
    - "Sin teórico aprobado" si tiene 18+ pero no aprobó el teórico.
 -------------------------------------------------------------------------- */
 function puedeConducir(edad, aproboTeorico) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  if( edad >= 18 && aproboTeorico){
+    return 'Puede sacar el registro';
+  } else if( edad < 18) {
+    return 'Menor de edad';
+  } else {
+    return 'Sin teórico aprobado';
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -69,7 +110,26 @@ function puedeConducir(edad, aproboTeorico) {
    Si el número no está entre 1 y 7, retorná "Día inválido".
 -------------------------------------------------------------------------- */
 function numeroDia(numero) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ
+  switch(numero) {
+    case 1: 
+       return 'lunes';
+    case 2: 
+       return 'martes';
+    case 3: 
+       return 'miércoles';
+    case 4: 
+       return 'jueves';
+    case 5: 
+       return 'viernes';
+    case 6:
+       return 'sábado';
+    case 7:
+       return 'domingo';
+    default: 
+       return 'Día inválido';
+  }
+
 }
 
 /* --------------------------------------------------------------------------
@@ -81,7 +141,19 @@ function numeroDia(numero) {
    - "Obesidad"   → IMC >= 30
 -------------------------------------------------------------------------- */
 function clasificarIMC(peso, altura) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ
+  let IMC = peso/(altura*altura);
+
+  if(IMC >= 18.5 && IMC <= 24.9 ){
+      return 'Normal';
+  } else if (IMC >= 25 && IMC <= 29.9){
+    return 'Sobrepeso';
+  } else if( IMC >= 30){
+    return 'Obesidad';
+  } else {
+    return 'Bajo peso';
+  }
+
 }
 
 /* --------------------------------------------------------------------------
@@ -90,7 +162,12 @@ function clasificarIMC(peso, altura) {
    retorná "Anónimo". De lo contrario, retorná el nombre tal cual.
 -------------------------------------------------------------------------- */
 function valorPorDefecto(nombreUsuario) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  if( nombreUsuario === null || nombreUsuario === ''){  // con solo saber si es null, tambien verifica undefined
+    return 'Anónimo';
+  } else {
+    return nombreUsuario;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -102,7 +179,16 @@ function valorPorDefecto(nombreUsuario) {
    - 0 a 59   → "Reprobado"
 -------------------------------------------------------------------------- */
 function calificarNota(nota) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  if(nota >= 90 && nota <= 100){
+    return 'Sobresaliente';
+  } else if(nota >= 75 && nota <= 89){
+    return 'Notable';
+  } else if(nota >= 60 && nota <= 74){
+    return 'Aprobado';
+  } else if(nota >= 0 && nota <= 59){
+    return 'Reprobado';
+  }
 }
 
 // 🚨 ¡NO TOCAR ESTA LÍNEA!
