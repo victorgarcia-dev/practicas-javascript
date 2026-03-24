@@ -18,18 +18,45 @@
    - El número como string si no cumple ninguna regla. Ej: fizzBuzzExtendido(2) → "2"
 -------------------------------------------------------------------------- */
 function fizzBuzzExtendido(n) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  if(n%3 === 0 && n%5 === 0 && n%7 === 0){
+    return 'FizzBuzzBazz';
+  } else if(n%3 === 0 && n%5 === 0){
+    return 'FizzBuzz';
+  } else if(n%3 === 0 && n%7 === 0){
+    return 'fizzBazz';
+  } else if(n%5 === 0 && n%7 === 0){
+    return 'BuzzBazz';
+  } else if(n%3 === 0){
+    return 'Fizz';
+  } else if(n%5 === 0){
+    return 'Buzz';
+  } else if(n%7 === 0){
+    return 'Bazz';
+  } else {
+    return n;
+  }
 }
 
 /* --------------------------------------------------------------------------
-   KATA 32 — Descuento en Carrito
+   KATA 32 — Descuento en Carrito 
    Dado un array de precios, calculá el total.
    Si el total SUPERA 5000, aplicá un descuento del 15%.
    Retorná el precio final a pagar.
 -------------------------------------------------------------------------- */
 function calcularTotal(precios) {
-  // TU CÓDIGO AQUÍ 👇
-}
+  // TU CÓDIGO AQUÍ
+  let total = 0;
+  for (let index = 0; index < precios.length; index++) {
+      total = total + precios[index];
+  }
+
+  if(total > 5000){
+    return total-(total*15)/100;
+  } else {
+    return total;
+  }
+} 
 
 /* --------------------------------------------------------------------------
    KATA 33 — Contador de Pares e Impares
@@ -38,7 +65,19 @@ function calcularTotal(precios) {
    Ej: contarParesEImpares(6) → { pares: 3, impares: 3 }
 -------------------------------------------------------------------------- */
 function contarParesEImpares(limite) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  let par=0;
+  let impar=0;
+
+  for (let index = 1; index <= limite; index++) {
+    if(index%2 === 0){
+      par++;
+    } else {
+      impar++;
+    }
+  }
+  return { pares: par, impares: impar}
+
 }
 
 /* --------------------------------------------------------------------------
@@ -48,7 +87,9 @@ function contarParesEImpares(limite) {
    Ej: palabrasEnMayusculas("hola mundo") → ["HOLA", "MUNDO"]
 -------------------------------------------------------------------------- */
 function palabrasEnMayusculas(oracion) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ
+  const listPalabras = oracion.toUpperCase().split(' ');
+  return listPalabras;
 }
 
 /* --------------------------------------------------------------------------
@@ -59,7 +100,19 @@ function palabrasEnMayusculas(oracion) {
    Ej: clasificarNumero(8) → { esPar: true, mayorQueCinco: true }
 -------------------------------------------------------------------------- */
 function clasificarNumero(numero) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO 
+  
+  let verificar = false;
+  let mayorCinco = false;
+  if(numero%2 === 0){
+     verificar = true;
+  }
+
+  if( numero > 5){
+       mayorCinco = true;
+  }
+ 
+  return { esPar: verificar, mayorQueCinco: mayorCinco};
 }
 
 /* --------------------------------------------------------------------------
@@ -69,7 +122,15 @@ function clasificarNumero(numero) {
    Ej: divisiblesPor3NoNueve(20) → [3, 6, 12, 15]
 -------------------------------------------------------------------------- */
 function divisiblesPor3NoNueve(limite) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  let numberList = [];
+
+  for (let index = 1; index <= limite; index++) {
+    if( index%3 === 0 && index%9 !==0 ){
+      numberList.push(index);
+    }
+  }
+  return numberList;
 }
 
 /* --------------------------------------------------------------------------
@@ -80,7 +141,11 @@ function divisiblesPor3NoNueve(limite) {
    Ej: convertirTemperatura(100) → { fahrenheit: 212, kelvin: 373.15 }
 -------------------------------------------------------------------------- */
 function convertirTemperatura(celsius) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  let fahrenheit = (celsius*(9/5)) + 32;
+  let kelvin = celsius + 273.15;
+
+  return {fahrenheit: Number(fahrenheit.toFixed(2)), kelvin: kelvin};
 }
 
 /* --------------------------------------------------------------------------
@@ -90,8 +155,26 @@ function convertirTemperatura(celsius) {
    Ej: contarTiradas([1, 2, 1, 3, 1, 6]) → { 1: 3, 2: 1, 3: 1, 4: 0, 5: 0, 6: 1 }
 -------------------------------------------------------------------------- */
 function contarTiradas(tiradas) {
-  // TU CÓDIGO AQUÍ 👇
-}
+  // TU CÓDIGO AQUÍ 
+  let uno = dos = tres = cuatro = cinco = seis = 0;
+
+  for (let index = 0; index < tiradas.length; index++) {
+    if(tiradas[index] === 1){
+      uno++;
+    } else if(tiradas[index] === 2){
+      dos++;
+    } else if(tiradas[index] === 3){
+      tres++;
+    } else if( tiradas[index] === 4){
+      cuatro++;
+    } else if(tiradas[index] === 5){
+      cinco++;
+    } else if(tiradas[index] === 6){
+      seis++;
+    }  
+  }
+   return {1: uno, 2: dos, 3: tres, 4: cuatro, 5: cinco, 6: seis}
+  }
 
 /* --------------------------------------------------------------------------
    KATA 39 — Divisores de un Número
@@ -100,7 +183,14 @@ function contarTiradas(tiradas) {
    Ej: obtenerDivisores(12) → [1, 2, 3, 4, 6, 12]
 -------------------------------------------------------------------------- */
 function obtenerDivisores(numero) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ
+  let numberList = [];
+  for (let index = 1; index <= numero; index++) {
+    if(numero%index === 0){
+      numberList.push(index);
+    }
+  }
+  return numberList.sort((a,b) => a -b);
 }
 
 /* --------------------------------------------------------------------------
@@ -113,7 +203,19 @@ function obtenerDivisores(numero) {
    Ej: adivinarNumero(10, [5, 15, 10]) → ["Demasiado bajo", "Demasiado alto", "¡Correcto!"]
 -------------------------------------------------------------------------- */
 function adivinarNumero(secreto, intentos) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  let result = [];
+
+  for (let index = 0; index < intentos.length; index++) {
+    if(secreto > intentos[index]){
+      result.push('Demasiado bajo');
+    } else if(secreto < intentos[index]){
+      result.push('Demasiado alto');
+    } else {
+      result.push('¡Correcto!');
+    }
+  }
+  return result;
 }
 
 // 🚨 ¡NO TOCAR ESTA LÍNEA!
