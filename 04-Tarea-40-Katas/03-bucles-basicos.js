@@ -10,7 +10,13 @@
    Ej: numerosHastaN(5) → [1, 2, 3, 4, 5]
 -------------------------------------------------------------------------- */
 function numerosHastaN(n) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  const numberList = [];
+
+  for (let index = 1; index <= n; index++) {
+    numberList.push(index);
+  }
+  return numberList;
 }
 
 /* --------------------------------------------------------------------------
@@ -20,7 +26,16 @@ function numerosHastaN(n) {
    Ej: cuentaRegresiva(3) → [3, 2, 1, 0, "¡Despegue! 🚀"]
 -------------------------------------------------------------------------- */
 function cuentaRegresiva(inicio) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  let numberList = [];
+
+  for (let index = 0; index <= inicio; index++) {
+    numberList.push(index);
+  }
+
+  let numbersListReverse = numberList.reverse();
+  numbersListReverse.push('¡Despegue! 🚀')
+  return numbersListReverse;
 }
 
 /* --------------------------------------------------------------------------
@@ -29,7 +44,14 @@ function cuentaRegresiva(inicio) {
    Ej: tablaMultiplicar(7) → ["7 x 1 = 7", "7 x 2 = 14", ..., "7 x 10 = 70"]
 -------------------------------------------------------------------------- */
 function tablaMultiplicar(numero) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  let tablaMultiplicar = [];
+
+  for (let index = 1; index <= 10; index++) {
+    
+    tablaMultiplicar.push(`${numero} x ${index} = ${numero*index}`);
+  }
+  return tablaMultiplicar;
 }
 
 /* --------------------------------------------------------------------------
@@ -39,7 +61,14 @@ function tablaMultiplicar(numero) {
    Definí factorial(0) = 1.
 -------------------------------------------------------------------------- */
 function factorial(n) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  let totalFactorial = 1;
+
+  for (let index = 1; index <=n; index++) {  //inicio en 1 el index por que el factorial de 0=1
+     totalFactorial = totalFactorial*index;
+  }
+
+  return totalFactorial;
 }
 
 /* --------------------------------------------------------------------------
@@ -49,7 +78,16 @@ function factorial(n) {
    Ej: sinMultiplosDe4(8) → [1, 2, 3, 5, 6, 7]
 -------------------------------------------------------------------------- */
 function sinMultiplosDe4(limite) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  let numberList = [];
+
+  for (let index = 1; index <= limite; index++) {
+    if( index%4 !== 0){
+      numberList.push(index);
+    }
+  }
+
+  return numberList;
 }
 
 /* --------------------------------------------------------------------------
@@ -58,7 +96,14 @@ function sinMultiplosDe4(limite) {
    (No recibe parámetros, la respuesta siempre es la misma)
 -------------------------------------------------------------------------- */
 function primerMultiploDe13MayorA100() {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ
+  let listnumnbers = []; 
+  for (let index = 0; index < 150; index++) {
+     if(index%13 === 0){
+       listnumnbers.push(index);
+     }
+  }
+  return listnumnbers.find(number => number > 100);
 }
 
 /* --------------------------------------------------------------------------
@@ -67,7 +112,16 @@ function primerMultiploDe13MayorA100() {
    Ej: triangulo(3) → ["*", "**", "***"]
 -------------------------------------------------------------------------- */
 function triangulo(filas) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  let triangulo = [];
+  let asterisco ='';
+
+  for (let index = 0; index < filas; index++) {
+    asterisco=`${asterisco}*`;
+    triangulo.push(asterisco);
+  }
+
+  return triangulo;
 }
 
 /* --------------------------------------------------------------------------
@@ -76,7 +130,14 @@ function triangulo(filas) {
    Ej: sumaHastaN(10) → 55
 -------------------------------------------------------------------------- */
 function sumaHastaN(n) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  let sumatotal = 0;
+
+  for (let index = 1; index <= n; index++) {
+    sumatotal = sumatotal + index;
+  }
+
+  return sumatotal;
 }
 
 /* --------------------------------------------------------------------------
@@ -86,7 +147,18 @@ function sumaHastaN(n) {
    Ej: fibonacci(6) → [0, 1, 1, 2, 3, 5]
 -------------------------------------------------------------------------- */
 function fibonacci(n) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ 
+  if (n <= 0) return [];
+
+  if (n === 1) return [0];
+
+  let resultado = [0, 1];
+
+  for (let i = 2; i < n; i++) {
+    resultado.push(resultado[i - 1] + resultado[i - 2]);
+  }
+
+  return resultado;
 }
 
 /* --------------------------------------------------------------------------
@@ -96,7 +168,16 @@ function fibonacci(n) {
    Tip: los números menores o iguales a 1 no son primos.
 -------------------------------------------------------------------------- */
 function esPrimo(numero) {
-  // TU CÓDIGO AQUÍ 👇
+  // TU CÓDIGO AQUÍ
+ if (numero <= 1) return false;
+
+  for (let i = 2; i <= Math.sqrt(numero); i++) {
+    if (numero % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 // 🚨 ¡NO TOCAR ESTA LÍNEA!
